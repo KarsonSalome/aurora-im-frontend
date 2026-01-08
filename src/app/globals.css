@@ -1,0 +1,30 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global scrollbar styles */
+
+::-webkit-scrollbar {
+    width: 8px;
+    /* Adjust width for vertical scrollbar */
+    height: 8px;
+    /* Adjust height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #8b8b8b;
+    /* Set color of the thumb */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+    /* background-color: #f0f0f0; */
+    background-color: #313131;
+    /* Track color */
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #888888;
+    /* Hover state color */
+}
