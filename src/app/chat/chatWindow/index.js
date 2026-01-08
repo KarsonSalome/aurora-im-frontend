@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import ChatHistory from "../chatHistory";
 import InputPanel from "../inputPanel";
 
-const ChatWindow = () => {
-    const [messages, setMessages] = useState([
-        { text: "Hi there!", sender: "other" },
-        { text: "Hello! How are you?", sender: "me" },
-        { text: "I'm good, thanks!", sender: "other" },
-    ]);
+const ChatWindow = ({messages}) => {
+    // const [messages, setMessages] = useState([
+    //     { text: "Hi there!", sender: "other" },
+    //     { text: "Hello! How are you?", sender: "me" },
+    //     { text: "I'm good, thanks!", sender: "other" },
+    // ]);
 
     const handleSend = (text) => {
         setMessages([...messages, { text, sender: "me" }]);

@@ -63,8 +63,8 @@ export default function Home() {
     if (result) {
       dispatch(updateUser({ user: result.user }));
     } else {
-      // dispatch(logout());
-      // router.push("/login");
+      dispatch(logout());
+      router.push("/login");
     }
   };
 

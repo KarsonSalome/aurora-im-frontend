@@ -37,7 +37,7 @@ export default function Home() {
       if (result) {
         showAlert("已成功登录系统", "success");
         dispatch(login({ token: result.token, user: result.user }));
-        router.push("/");
+        router.push("/chat");
       } else {
         showAlert("账号无效，请重试");
       }

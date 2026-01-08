@@ -3,7 +3,7 @@ import axiosApi from "../../../utils/axios";
 export const signIn = async (username, password) => {
   if (!username || !password) return false;
   try {
-    const response = await axiosApi.post("/auth/signin", {
+    const response = await axiosApi.post("/login", {
       username: username,
       password: password,
     });

@@ -11,6 +11,21 @@ export const getProfile = async () => {
   }
 };
 
+export const updateAvatar = async ({ file }) => {
+  try {
+    const formData = new FormData();
+    formData.append("avatar", file);
+    const response = await axiosApi.post("/uploadAvatar", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    return null;
+  }
+};
+
 export const updateUserCredit = async ({
   newUserName,
   oldPassword,

@@ -12,29 +12,37 @@ import SideBar from "@/components/sidebar";
 import TopBar from "@/components/topbar";
 import ChatWindow from "./chatWindow";
 
+import useWebSocket from "../hooks/useWebSocket";
+
 export default function Home() {
   const { t } = useLanguage();
   const { showAlert } = useAlert();
-  const { user } = useSelector((state) => state.auth);
+  const { token, user } = useSelector((state) => state.auth);
+  console.log("Token:", token);
   const dispatch = useDispatch();
   const router = useRouter();
   const [file, setFile] = useState(null);
   const [sidebarShow, setSidebarShow] = useState(true);
+  const { messages, sendMessage, status } = useWebSocket(token);
+  const [text, setText] = useState("");
 
+  // const fetUserProfile = async () => {
+  //   const result = await getProfile();
+  //   if (result) {
+  //     dispatch(updateUser({ user: result.user }));
+  //   } else {
+  //     // dispatch(logout());
+  //     // router.push("/login");
+  //   }
+  // };
 
-  const fetUserProfile = async () => {
-    const result = await getProfile();
-    if (result) {
-      dispatch(updateUser({ user: result.user }));
-    } else {
-      // dispatch(logout());
-      // router.push("/login");
-    }
-  };
+  // useEffect(() => {
+  //   fetUserProfile();
+  // }, []);
 
   useEffect(() => {
-    fetUserProfile();
-  }, []);
+    console.log("New Message Arrived, ", messages)
+  }, [messages])
 
   if (!t) return <p className="text-white">Loading translations...</p>;
   return (
@@ -46,7 +54,8 @@ export default function Home() {
           setSidebarShow={setSidebarShow}
         />
         <div className="w-full flex-1 bg-blue-100/30">
-          <ChatWindow />
+        <button onClick={() => sendMessage({sender_id: 14, receiver_id:15, content: "123", type: "214323"})} >BBBBBB</button>
+          <ChatWindow messages={messages} />
         </div>
       </div>
     </div>

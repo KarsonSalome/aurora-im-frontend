@@ -27,7 +27,7 @@ const authSlice = createSlice({
       state.user = null;
     },
     updateUser: (state, action) => {
-      state.user = action.payload.user;
+      state.user.avatar = action.payload.url;
     },
     rehydrate: (state, action) => {
       return { ...state, ...action.payload };
